@@ -17,3 +17,5 @@ docker run --name genx \
   -e AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
   scadip/aws-batch-poc
 ```
+
+ref.: [install jupyter notebook on docker linux:](https://tcoil.info/build-custom-miniconda-docker-image-with-dockerfile/)
