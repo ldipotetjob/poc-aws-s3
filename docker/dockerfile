@@ -1,0 +1,7 @@
+FROM amazonlinux:latest
+RUN yum -y install which unzip aws-cli
+RUN yum -y install python-pip
+RUN pip install boto3
+RUN mkdir /src
+COPY . /src 
+CMD ["python","/src/awsbatch.py"]
