@@ -14,5 +14,5 @@ import os
 os.system('cp poc_folder/demofile2.txt poc_folder/demofile2bk.txt')
 os.system('ls -lha')
 os.system('pwd')
-#os.system('aws s3 cp "/demofile2.txt" s3://poc-bucket-genx/sickle/')
+os.system('aws s3 cp "poc_folder/" s3://poc-bucket-genx/sickle/ --recursive --include *.txt')
 print(f.read())
