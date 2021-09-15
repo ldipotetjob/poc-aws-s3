@@ -2,7 +2,7 @@ FROM amazonlinux:latest
 RUN yum -y install which unzip aws-cli
 RUN yum -y install python-pip
 RUN pip install boto3
-# begin installin conda
+# begin installing conda
 RUN yum install -y wget
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
@@ -31,7 +31,7 @@ RUN rm Miniconda3-latest-Linux-x86_64.sh
 # expose port to start the jupyter notebook in server mode
 # EXPOSE 8888
 
-# end installin conda
+# end installing conda
 
 RUN mkdir /src
 COPY . /src 
