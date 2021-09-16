@@ -14,4 +14,5 @@ conda install -y numpy \
                      pandas
 conda install -y jupyter notebook
 sudo mkdir notebooks
+chmod 777 notebooks/
 jupyter notebook --ip 0.0.0.0 --no-browser --port 8888  --allow-root --notebook-dir=notebooks
