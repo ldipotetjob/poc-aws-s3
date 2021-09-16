@@ -6,9 +6,9 @@
 * PATH=/home/ec2-user/miniconda3/bin:${PATH}
 * conda update -y conda
 * conda list
-* sudo conda install -y numpy \
+* conda install -y numpy \
                      matplotlib \
                      pandas
-* sudo conda install -y jupyter notebook
+* conda install -y jupyter notebook
 * sudo mkdir notebooks
 * jupyter notebook --ip 0.0.0.0 --no-browser --port 8888  --allow-root --notebook-dir=notebooks
