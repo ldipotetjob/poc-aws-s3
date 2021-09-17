@@ -18,7 +18,7 @@ docker run --name genx \
   scadip/aws-batch-poc
 ```
 
-#### execute on cells in jupyter 
+#### execute on cells in jupyter: 
 ```shell
 # execute  python on jupyter
 %run 'awsbatch.py'  
