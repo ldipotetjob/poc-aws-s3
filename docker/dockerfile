@@ -36,6 +36,7 @@ RUN rm Miniconda3-latest-Linux-x86_64.sh
 RUN mkdir /src
 COPY . /src 
 # [jupyter runtime] start the jupyter notebook in server mode
+# docker run --name container_name -it -p 8888:8888 -v "${PWD}:/notebooks" image_name_or_id
 # to start jupyter notebook, type in your browser: http://127.0.0.1:8888/
 # CMD ["jupyter","notebook","--ip=0.0.0.0","--port=8888","--no-browser","--allow-root", "--notebook-dir=/notebooks"]
 
