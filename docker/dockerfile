@@ -1,43 +1,27 @@
-FROM amazonlinux:latest
-RUN yum -y install which unzip aws-cli
-RUN yum -y install python-pip
-RUN pip install boto3
+FROM ubuntu:18.04
+
+# ref: https://hub.docker.com/_/ubuntu/
+# tag ubuntu:18.04 @see Locales
+RUN apt-get update && apt-get install -y wget groff locales && rm -rf /var/lib/apt/lists/* \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
 # begin installing conda
-RUN yum install -y wget
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 # install in batch (silent) mode, does not edit PATH or .bashrc or .bash_profile
 # -p path
 # -f force
+
 RUN bash Miniconda3-latest-Linux-x86_64.sh -b
-
 ENV PATH=/root/miniconda3/bin:${PATH} 
-
 RUN conda update -y conda
-RUN conda list
-RUN conda install -y numpy \
-                     matplotlib \
-                     pandas
-
-# [jupyter runtime] install jupyter notebook
-# RUN conda install -y jupyter notebook
-
-# [jupyter runtime] create directory for notebooks
-# RUN mkdir /notebooks
-
-# cleanup
-RUN rm Miniconda3-latest-Linux-x86_64.sh
-
-# expose port to start the jupyter notebook in server mode
-# EXPOSE 8888
-
-# end installing conda
-
+RUN conda config --add channels defaults && \
+    conda config --add channels bioconda && \
+    conda config --add channels conda-forge
 RUN mkdir /src
 COPY . /src 
-# [jupyter runtime] start the jupyter notebook in server mode
-# docker run --name container_name -it -p 8888:8888 -v "${PWD}:/notebooks" image_name_or_id
-# to start jupyter notebook, type in your browser: http://127.0.0.1:8888/
-# CMD ["jupyter","notebook","--ip=0.0.0.0","--port=8888","--no-browser","--allow-root", "--notebook-dir=/notebooks"]
+COPY environment.yaml /src/environment.yaml 
+RUN conda env create --quiet -f /src/environment.yaml
 
-CMD ["python","/src/awsbatch.py"]
+CMD ["/bin/bash", "-c"]
