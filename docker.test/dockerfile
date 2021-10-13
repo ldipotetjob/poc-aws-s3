@@ -1,26 +1,22 @@
 FROM ubuntu:18.04
-
 # ref: https://hub.docker.com/_/ubuntu/
+
 # tag ubuntu:18.04 @see Locales
 RUN apt-get update && apt-get install -y wget groff locales && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 ENV LANG en_US.utf8
-
 # begin installing conda
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-
-# install in batch (silent) mode, does not edit PATH or .bashrc or .bash_profile
-# -p path
-# -f force
-
 RUN bash Miniconda3-latest-Linux-x86_64.sh -b
-ENV PATH=/root/miniconda3/bin:${PATH} 
+# adding path to call conda
+ENV PATH=/root/miniconda3/bin:${PATH}
 RUN conda update -y conda
 RUN conda config --add channels defaults && \
     conda config --add channels bioconda && \
     conda config --add channels conda-forge
-RUN mkdir /src
-COPY . /src 
+RUN mkdir /src && mkdir /data
+COPY . /src
+# copy & create environment
 COPY environment.yaml /src/environment.yaml 
 RUN conda env create --quiet -f /src/environment.yaml
 
