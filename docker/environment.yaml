@@ -1,29 +1,27 @@
-name: bacterial-genomics-tutorial
+name: genx
 channels:
   - conda-forge
   - bioconda
   - defaults
 dependencies:
   - awscli
-  - samtools
-  - bwa
-  - fastqc
-  - python=3
-  - minimap2
-  - ragtag
   - abricate
-  - mlst
+  - barrnap
+  - fastqc
+  - fasttree
+  - kraken2  
+  - mauve
+  - mauvealigner    
+  - megahit 
+  - mlst  
+  - pip  
+  - python=3
+  - prinseq  
+  - prokka  
+  - quast  
+  - roary  
   - spades
-  - minimap2
-  - mummer
-  - mash
-  - roary
-  - mafft
-  - prokka
-  - quast
-  - sickle-trim
-  - porechop
-  - pip
+  - sickle-trim  
   - pip:
       - numpy
       - matplotlib
