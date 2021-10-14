@@ -1,6 +1,19 @@
 # poc-aws-s3
 
-### build & run docker image 
+### Setting up ###
+- Docker - S3 data on AWS
+    - **build image:**
+      - docker build -t scadip/aws-batch-poc:2.0
+    - **docker upload image to docker repository(docker hub):**
+      - echo "my_cool_pasw" | docker login --username my_cool_usr_name --password-stdin
+      - docker push scadip/aws-batch-poc:2.0
+- BioInformatic tools scripts 
+    - fastqc
+    - sickle
+    - spades
+
+
+
 
 #### docker image:
 ```shell
