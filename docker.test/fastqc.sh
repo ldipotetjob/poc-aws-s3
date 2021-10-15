@@ -27,9 +27,5 @@ _EOF_
 
 echo $fastqc_out
 
-echo "sickle folder content"
-ls -lha /data_out/sickle/
 echo "fastqc folder content"
 ls -lha /data_out/fastqc/
-echo "spades folder content"
-ls -lha /data_out/spades

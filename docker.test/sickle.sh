@@ -1,8 +1,7 @@
 #!/bin/bash
-# This is our first script. 
+
 echo 'running sickle tool'
 source activate genx
-
 # basename get filename without the full path
 fastq_forward=$1
 forward_filename_only=$(basename $1)
@@ -46,7 +45,3 @@ echo $sickle_out
 
 echo "sickle folder content"
 ls -lha /data_out/sickle/
-echo "fastqc folder content"
-ls -lha /data_out/fastqc/
-echo "spades folder content"
-ls -lha /data_out/spades  

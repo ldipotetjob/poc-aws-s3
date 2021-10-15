@@ -26,9 +26,5 @@ spades_out=$(cat << _EOF_
 _EOF_)
 echo $spades_out
 
-echo "sickle folder content"
-ls -lha /data_out/sickle/
-echo "fastqc folder content"
-ls -lha /data_out/fastqc/
 echo "spades folder content"
 ls -lha /data_out/spades
