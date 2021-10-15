@@ -1,47 +1,31 @@
-# poc-aws-s3
+## README ##
+
+This repository is a proof of concept about the implementation of some bioinformatic tools in docker.
 
 ### Setting up ###
+- AWS
 - Docker
-    - **build image:**
-      - docker build -t scadip/aws-batch-poc:test
-    - **docker upload image to docker repository(docker hub):**
-      - echo "my_cool_pasw" | docker login --username my_cool_usr_name --password-stdin
-      - docker push scadip/aws-batch-poc:test
-    - **docker pull image from docker repository(docker hub):**
-      - docker pull scadip/aws-batch-poc:test  
-    - 
-- BioInformatic tools scripts 
-    - fastqc
-    - sickle
-    - spades
+    - **docker build -t image_name:tag .**
+    - **docker  run --name container_name --rm -ti image_name:tag tool_to_execute**
+- BioInformatic tools scripts
+./src/spades.sh 
+./src/sickle.sh 
+./src/fastqc.sh
 
+### Calling tools(tool_to_execute) ###
 
+(tag:**test**) two choices 
 
+1. sickle: ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+2. sickle + spades + fasqc: ./src/executor.sh
 
-#### docker image:
-```shell
-cd docker 
-docker build -t scadip/aws-batch-poc .
-```
+### example ###
 
-#### run a command in the container:
-```shell
-docker run --name genx \
-  --rm \
-  -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
-  -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
-  -e AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION} \
-  scadip/aws-batch-poc
-```
+1. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+2. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/executor.sh
 
-#### execute on cells in jupyter: 
-```shell
-# execute  python on jupyter
-%run 'awsbatch.py'  
+### Contact us ###
+[Scadip](https://scadip.com)  
 
-# execute bash on jupyter
-%%bash
-./firstcript.sh 
-```
 
 ref.: [install jupyter notebook on docker linux:](https://tcoil.info/build-custom-miniconda-docker-image-with-dockerfile/)
