@@ -21,7 +21,7 @@ $ docker run --name custom_jupyter -i -t -p 8888:8888 -v "${PWD}:/notebooks" sca
 ## [I 09:48:52.306 NotebookApp] http://f9063963cd41:8888/?token=5b78857f1165cff73883fbcaaa919a11088f8e93b5abe99c
 ## [I 09:48:52.306 NotebookApp]  or http://127.0.0.1:8888/?token=5b78857f1165cff73883fbcaaa919a11088f8e93b5abe99c
 ## [I 09:48:52.307 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-## 
+## ......
 ```
 
 
