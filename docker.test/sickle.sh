@@ -24,7 +24,7 @@ SECONDS=0
 sickle pe -g -f $fastq_forward -r $fastq_reverse -t sanger \
         -o /data_out/sickle/$forward_filename_only \
         -p /data_out/sickle/$reverse_filename_only \
-        -s /data_out/sickle/trimmed_singles_file.fastq.gz -q 20 -l 20
+        -s /data_out/sickle/trimmed_singles_file.fastq.gz -q 20 -l 120
 
 # aws s3 cp data_out/sickle/ s3://s3_path --recursive
 
