@@ -1,0 +1,39 @@
+FROM centos:8
+# begin installing conda
+RUN yum install -y wget
+RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# install in batch (silent) mode, does not edit PATH or .bashrc or .bash_profile
+# -p path
+# -f force
+RUN bash Miniconda3-latest-Linux-x86_64.sh -b
+
+ENV PATH=/root/miniconda3/bin:${PATH} 
+
+RUN conda update -y conda
+## RUN conda list
+## RUN conda install -y numpy \
+##                     matplotlib \
+##                     pandas
+
+# [jupyter runtime] install jupyter notebook
+ RUN conda install -y jupyter notebook
+
+# [jupyter runtime] create directory for notebooks
+RUN mkdir /notebooks
+RUN chmod 755 notebooks
+
+# cleanup
+RUN rm Miniconda3-latest-Linux-x86_64.sh
+
+# expose port to start the jupyter notebook in server mode
+ EXPOSE 8888
+
+# end installing conda
+
+RUN mkdir /src
+COPY . /src 
+# [jupyter runtime] start the jupyter notebook in server mode
+# to start jupyter notebook, type in your browser: http://127.0.0.1:8888/
+CMD ["jupyter","notebook","--ip=0.0.0.0","--port=8888","--no-browser","--allow-root", "--notebook-dir=/notebooks"]
+

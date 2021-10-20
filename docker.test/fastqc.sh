@@ -23,7 +23,7 @@ fastqc_out=$(cat << _EOF_
            $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed.
         </BODY>
 </HTML>
-_EOF_
+_EOF_)
 
 echo $fastqc_out
 
