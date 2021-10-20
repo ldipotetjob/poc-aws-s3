@@ -21,7 +21,7 @@ This repository is a proof of concept about the implementation of some bioinform
 
 ### example ###
 
-1. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+1. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/sickle.sh /data/xxxx.fastq.gz /data/yyyyyy.fastq.gz
 2. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/executor.sh
 
 ### Contact us ###
