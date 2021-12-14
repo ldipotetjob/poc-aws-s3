@@ -21,8 +21,15 @@ $ docker run --name custom_jupyter -i -t -p 8888:8888 -v "${PWD}:/notebooks" sca
 ## [I 09:48:52.306 NotebookApp] http://f9063963cd41:8888/?token=5b78857f1165cff73883fbcaaa919a11088f8e93b5abe99c
 ## [I 09:48:52.306 NotebookApp]  or http://127.0.0.1:8888/?token=5b78857f1165cff73883fbcaaa919a11088f8e93b5abe99c
 ## [I 09:48:52.307 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-## 
+## ......
 ```
+</br>
+</br>
 
+[Image reference at docker hub](https://hub.docker.com/r/scadip/jupyter) 
+
+
+**Docker could asks to access at your desk because jupyter need to write in a folder(/notebook) but you don't have to. If you don do this any script that you run in python jupyter cells won't be saved at your local folders and in the same way if your scripts involve IO operations to local file system an IO exception will be thrown.**
 
 [For suited implementations contact us](https://www.scadip.com/contact-us/)
+

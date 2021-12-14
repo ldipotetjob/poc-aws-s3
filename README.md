@@ -16,12 +16,12 @@ This repository is a proof of concept about the implementation of some bioinform
 
 (tag:**test**) two choices 
 
-1. sickle: ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+1. sickle: ./src/sickle.sh /data/xxxx_1.fastq.gz /data/xxxx_2.fastq.gz
 2. sickle + spades + fasqc: ./src/executor.sh
 
 ### example ###
 
-1. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+1. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/sickle.sh /data/xxxx_1.fastq.gz /data/xxxx_2.fastq.gz
 2. $ docker run --name genx --rm scadip/aws-batch-poc:test ./src/executor.sh
 
 ### Contact us ###

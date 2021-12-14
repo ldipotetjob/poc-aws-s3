@@ -9,7 +9,7 @@ START_TIME=$(date +"%x %r %Z")
 TIME_STAMP="Generated at $START_TIME"
 TITLE="Spades tooling process $TIME_STAMP"
 SECONDS=0
-spades.py --careful -o /data_out/spades -1 /data_out/sickle//P7741_R1.fastq.gz -2 /data_out/sickle/P7741_R2.fastq.gz -s /data_out/sickle/trimmed_singles_file.fastq.gz
+spades.py --careful -o /data_out/spades -1 /data_out/sickle/xxxx_1.fastq.gz -2 /data_out/sickle/xxxx_2.fastq.gz -s /data_out/sickle/xxxx_single.fastq.gz
 
 duration=$SECONDS
 spades_out=$(cat << _EOF_

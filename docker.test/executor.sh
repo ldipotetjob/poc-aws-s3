@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./src/sickle.sh /data/P7741_R1.fastq.gz /data/P7741_R2.fastq.gz
+source ./src/sickle.sh /data/xxxx_1.fastq.gz /data/xxxx_2.fastq.gz
 source ./src/fastqc.sh
 source ./src/spades.sh
 
